@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SARAL Freight Management - Professional domestic and international transportation solutions with global reach and local expertise." />
+  <title>SARAL Freight Management | Domestic & International Transportation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* =============================================
+       CSS CUSTOM PROPERTIES
+    ============================================= */
+    :root {
+      --navy: #0b1d3a;
+      --navy-mid: #0f2548;
+      --navy-light: #1a3a6b;
+      --orange: #f5a623;
+      --orange-dark: #e09010;
+      --white: #ffffff;
+      --gray-light: #f4f6f9;
+      --gray-text: #8a9bb5;
+      --text-body: #cdd6e8;
+      --transition: 0.25s ease;
+      --radius: 6px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background-color: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; transition: color var(--transition); }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: inherit; border: none; outline: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--white);
+    }
+
+    .section-title span { color: var(--orange); }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--gray-text);
+      max-width: 560px;
+      margin-top: 10px;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      transition: all var(--transition);
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: var(--navy);
+    }
+    .btn-orange:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245,166,35,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--orange);
+      color: var(--orange);
+    }
+    .btn-outline:hover {
+      background: var(--orange);
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--navy);
+    }
+    .btn-white:hover {
+      background: var(--gray-light);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       TOPBAR
+    ============================================= */
+    .topbar {
+      background: var(--orange);
+      padding: 8px 0;
+      text-align: center;
+    }
+    .topbar p {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+    }
+
+    /* =============================================
+       HEADER / NAV
+    ============================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--orange);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--white);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-menu a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-body);
+      letter-spacing: 0.03em;
+    }
+    .nav-menu a:hover { color: var(--orange); }
+
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-phone {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+    .nav-phone span { color: var(--orange); }
+
+    .nav-email {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+    }
+
+    /* hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(105deg, var(--navy) 0%, var(--navy-mid) 60%, #0d2240 100%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(11,29,58,0.92) 40%, rgba(11,29,58,0.55) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      padding: 80px 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,166,35,0.12);
+      border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 30px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--orange);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title span { color: var(--orange); display: block; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      max-width: 480px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* =============================================
+       BOOKING FORM
+    ============================================= */
+    .booking-section {
+      background: var(--navy-mid);
+      padding: 60px 0;
+    }
+
+    .booking-card {
+      background: var(--navy-light);
+      border-radius: 12px;
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .booking-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .booking-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .booking-header p {
+      color: var(--gray-text);
+      font-size: 0.92rem;
+      margin-top: 6px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group.half { grid-column: span 1; }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .form-label .required { color: var(--orange); margin-left: 2px; }
+
+    .form-control {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--orange);
+      background: rgba(245,166,35,0.05);
+    }
+    .form-control::placeholder { color: rgba(255,255,255,0.3); }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a9bb5' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .form-row-inline {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .swap-btn {
+      width: 38px;
+      height: 38px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-bottom: 2px;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: #25D366;
+      color: var(--white);
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+    }
+    .whatsapp-btn:hover { background: #20bc5a; transform: translateY(-2px); }
+
+    /* =============================================
+       ABOUT SECTION
+    ============================================= */
+    .about-section {
+      padding: 80px 0;
+      background: var(--navy);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .about-content p {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(245,166,35,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .feature-text p {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      margin: 0;
+    }
+
+    .about-contact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 20px;
+    }
+
+    .about-contact a {
+      font-size: 0.9rem;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top left, rgba(245,166,35,0.15), transparent);
+    }
+
+    /* =============================================
+       SERVICES SECTION
+    ============================================= */
+    .services-section {
+      padding: 80px 0;
+      background: var(--navy-mid);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--navy);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+      border-color: rgba(245,166,35,0.2);
+    }
+
+    .service-card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .service-card-body {
+      padding: 20px;
+    }
+
+    .service-icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: var(--orange);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .service-card-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .service-card-body p {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+    }
+    .learn-more:hover { gap: 10px; }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    .how-section {
+      padding: 80px 0;
+      background: var(--navy);
+    }
+
+    .how-header { text-align: center; margin-bottom: 48px; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: linear-gradient(to right, var(--orange), rgba(245,166,35,0.2));
+      z-index: 0;
+    }
+
+    .step-card {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 72px;
+      height: 72px;
+      background: var(--navy-mid);
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .step-number strong {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .step-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       CTA BANNER
+    ============================================= */
+    .cta-section {
+      background: linear-gradient(135deg, #1a5c2e 0%, #0e3d1f 100%);
+      padding: 48px 0;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .cta-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .cta-content p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.92rem;
+    }
+
+    /* =============================================
+       BOTTOM CTA BAR
+    ============================================= */
+    .bottom-cta {
+      background: var(--orange);
+      padding: 20px 0;
+    }
+
+    .bottom-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .bottom-cta-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bottom-cta-icon {
+      width: 46px;
+      height: 46px;
+      background: rgba(11,29,58,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .bottom-cta-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .bottom-cta-text p {
+      font-size: 0.82rem;
+      color: rgba(11,29,58,0.7);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .site-footer {
+      background: #070f1e;
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin: 14px 0 20px;
+      max-width: 280px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 34px;
+      height: 34px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: background var(--transition);
+    }
+    .social-link:hover { background: var(--orange); color: var(--navy); }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--orange); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .footer-contact-item span:first-child {
+      color: var(--orange);
+      font-size: 0.9rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-item span:last-child {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      padding: 18px 0;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* =============================================
+       MOBILE NAV OPEN STATE
+    ============================================= */
+    .nav-menu.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--navy-mid);
+      padding: 20px 24px;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      z-index: 99;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .form-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .nav-contact { display: none; }
+      .nav-toggle { display: flex; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image { order: -1; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      .cta-inner { flex-direction: column; text-align: center; }
+
+      .bottom-cta-inner { flex-direction: column; text-align: center; }
+
+      .form-grid { grid-template-columns: 1fr; }
+      .form-row-inline { grid-template-columns: 1fr; }
+      .swap-btn { display: none; }
+
+      .hero-content { padding: 60px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .booking-card { padding: 24px 16px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+    }
+    .feature-icon i { color: var(--orange); font-size: 1.1rem; }
+    .service-icon-wrap i { color: var(--navy); font-size: 1.3rem; }
+    .bottom-cta-icon i { color: var(--navy); font-size: 1.2rem; }
+    .footer-contact-item span i { color: var(--orange); }
+    .topbar i { margin-right: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar" role="banner">
+    <p><i class="fa-solid fa-plane" aria-hidden="true"></i> We Are Specialists In Freight Transportation</p>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+
+        <a href="/" class="logo" aria-label="SARAL Freight Management Home">
+          <div class="logo-icon" aria-hidden="true">S</div>
+          <span class="logo-text">SARAL</span>
+        </a>
+
+        <ul class="nav-menu" id="navMenu" role="list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+
+        <div class="nav-contact" aria-label="Contact information">
+          <div>
+            <div class="nav-phone">📞 <span>+61 (0)65 7776</span></div>
+            <div class="nav-email">support@saralfreightmgmt.com</div>
+          </div>
+          <a href="#booking" class="btn btn-orange">Get a Quote</a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-bg" role="img" aria-label="Freight transportation background"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">We Are Specialists In Freight Transportation</div>
+          <h1 class="hero-title">
+            Domestic and International
+            <span>Transportation</span>
+          </h1>
+          <p class="hero-desc">Professional freight management solutions with global reach and local expertise. Fast, reliable, and fully trackable.</p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-orange">Get a Quote</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="booking-section" id="booking" aria-labelledby="booking-title">
+      <div class="container">
+        <div class="booking-card">
+          <div class="booking-header">
+            <h2 id="booking-title">Book Your Shipment</h2>
+            <p>Fill in the details to book your freight service</p>
+          </div>
+
+          <form action="#" method="post" novalidate>
+            <div class="form-grid">
+
+              <div class="form-group full">
+                <label for="serviceType" class="form-label">Select Service Type <span class="required" aria-hidden="true">*</span></label>
+                <select id="serviceType" name="serviceType" class="form-control" required aria-required="true">
+                  <option value="">Air Freight</option>
+                  <option value="sea">Sea Freight</option>
+                  <option value="land">Land Freight</option>
+                  <option value="multimodal">Multi-Modal</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="grid-column: span 3">
+                <p class="form-label">Customer Information</p>
+              </div>
+
+              <div class="form-group">
+                <label for="fullName" class="form-label">Your Name</label>
+                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Your Name" autocomplete="name" />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" autocomplete="email" />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number" autocomplete="tel" />
+              </div>
+
+              <div class="form-group full">
+                <label for="company" class="form-label">Company Name (Optional)</label>
+                <input type="text" id="company" name="company" class="form-control" placeholder="Company Name (Optional)" autocomplete="organization" />
+              </div>
+
+              <div class="form-group" style="grid-column: span 3">
+                <p class="form-label">Route Information</p>
+              </div>
+
+              <div class="form-group full">
+                <div class="form-row-inline">
+                  <div class="form-group" style="margin: 0">
+                    <label for="origin" class="form-label">Origin <span class="required" aria-hidden="true">*</span></label>
+                    <select id="origin" name="origin" class="form-control" required aria-required="true">
+                      <option value="">Select origin country</option>
+                      <option value="au">Australia</option>
+                      <option value="sg">Singapore</option>
+                      <option value="us">United States</option>
+                    </select>
+                  </div>
+                  <div class="swap-btn" aria-hidden="true" title="Swap origin and destination"><i class="fa-solid fa-right-left"></i></div>
+                  <div class="form-group" style="margin: 0">
+                    <label for="destination" class="form-label">Destination <span class="required" aria-hidden="true">*</span></label>
+                    <select id="destination" name="destination" class="form-control" required aria-required="true">
+                      <option value="">Select destination country</option>
+                      <option value="au">Australia</option>
+                      <option value="sg">Singapore</option>
+                      <option value="us">United States</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group half">
+                <label for="shipDate" class="form-label">Shipment Date <span class="required" aria-hidden="true">*</span></label>
+                <input type="date" id="shipDate" name="shipDate" class="form-control" required aria-required="true" />
+              </div>
+
+              <div class="form-group half" style="display: flex; align-items: flex-end">
+                <a href="https://wa.me/61065777" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Contact Us on WhatsApp
+                </a>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-orange">Submit Enquiry →</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-content">
+            <span class="section-tag">About The Company</span>
+            <h2 id="about-title">We offer worldwide logistics support</h2>
+            <p>SARAL FREIGHT MANAGEMENT PTE LTD is a leading provider of comprehensive freight and logistics solutions. With decades of experience in international trade and transportation, we deliver reliable and efficient services to businesses worldwide.</p>
+
+            <div class="about-features">
+              <div class="feature-item">
+                <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-tag"></i></div>
+                <div class="feature-text">
+                  <h4>Affordable Cost</h4>
+                  <p>Competitive pricing for all freight services</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-clock"></i></div>
+                <div class="feature-text">
+                  <h4>Due Time Delivery</h4>
+                  <p>On-time delivery guaranteed</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="feature-text">
+                  <h4>Tracking Moving</h4>
+                  <p>Real-time shipment tracking</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-contact">
+              <span style="color: var(--gray-text); font-size: 0.88rem;">Get Free Assessment:</span>
+              <a href="mailto:support@saralfreightmgmt.com">support@saralfreightmgmt.com</a>
+            </div>
+
+            <a href="#services" class="btn btn-orange">Read More</a>
+          </div>
+
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80"
+              alt="Container port with stacked shipping containers representing SARAL's global logistics network"
+              width="600"
+              height="450"
+              loading="lazy"
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="services-header">
+          <span class="section-tag">Our Services</span>
+          <h2 id="services-title" class="section-title">SARAL Freight <span>Services</span></h2>
+          <p class="section-subtitle" style="margin: 10px auto 0">Comprehensive freight and logistics solutions tailored to your business needs with professional excellence and reliability.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80"
+              alt="Air freight aircraft at airport"
+              class="service-card-img"
+              width="300"
+              height="160"
+              loading="lazy"
+            />
+            <div class="service-card-body">
+              <div class="service-icon-wrap" aria-hidden="true"><i class="fa-solid fa-plane-departure"></i></div>
+              <h3>Air Freight</h3>
+              <p>Fast and reliable air freight solutions for time-sensitive shipments with comprehensive handling options.</p>
+              <a href="#" class="learn-more" aria-label="Learn more about Air Freight">Learn More →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80"
+              alt="Container ship at sea for ocean freight"
+              class="service-card-img"
+              width="300"
+              height="160"
+              loading="lazy"
+            />
+            <div class="service-card-body">
+              <div class="service-icon-wrap" aria-hidden="true"><i class="fa-solid fa-ship"></i></div>
+              <h3>Sea (Ocean Freight)</h3>
+              <p>Cost-effective ocean freight solutions for large-volume shipments with flexible schedules and comprehensive care.</p>
+              <a href="#" class="learn-more" aria-label="Learn more about Sea Freight">Learn More →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80"
+              alt="Trucks on highway for land and road freight"
+              class="service-card-img"
+              width="300"
+              height="160"
+              loading="lazy"
+            />
+            <div class="service-card-body">
+              <div class="service-icon-wrap" aria-hidden="true"><i class="fa-solid fa-truck"></i></div>
+              <h3>Land (Road and Truck)</h3>
+              <p>Efficient land transportation solutions for domestic and international road freight with door-to-door service.</p>
+              <a href="#" class="learn-more" aria-label="Learn more about Land Freight">Learn More →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80"
+              alt="Multi-modal logistics hub combining air, sea and land transport"
+              class="service-card-img"
+              width="300"
+              height="160"
+              loading="lazy"
+            />
+            <div class="service-card-body">
+              <div class="service-icon-wrap" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></div>
+              <h3>Multi-Modal</h3>
+              <p>Integrated transport solutions combining air, sea, and road freight for maximum efficiency and cost savings.</p>
+              <a href="#" class="learn-more" aria-label="Learn more about Multi-Modal Freight">Learn More →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" aria-labelledby="how-title">
+      <div class="container">
+        <div class="how-header">
+          <span class="section-tag">How It Works</span>
+          <h2 id="how-title" class="section-title">How It <span>Works</span></h2>
+          <p class="section-subtitle" style="margin: 10px auto 0">Our streamlined process ensures efficient and reliable freight management from pickup to delivery.</p>
+        </div>
+
+        <ol class="steps-grid">
+          <li class="step-card">
+            <div class="step-number" aria-hidden="true"><span>STEP</span><strong>01</strong></div>
+            <h3>Received your product</h3>
+            <p>We receive and process your shipment with careful handling and documentation to ensure secure transportation.</p>
+          </li>
+          <li class="step-card">
+            <div class="step-number" aria-hidden="true"><span>STEP</span><strong>02</strong></div>
+            <h3>Warehousing</h3>
+            <p>Professional storage and inventory management in our secure facilities with create control and security systems.</p>
+          </li>
+          <li class="step-card">
+            <div class="step-number" aria-hidden="true"><span>STEP</span><strong>03</strong></div>
+            <h3>Package has been handed over</h3>
+            <p>Your shipment is carefully processed and handed over to our transportation network for delivery.</p>
+          </li>
+          <li class="step-card">
+            <div class="step-number" aria-hidden="true"><span>STEP</span><strong>04</strong></div>
+            <h3>Package has been delivered</h3>
+            <p>Safe and timely delivery to the final destination with confirmation and tracking updates throughout the process.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-content">
+            <h2 id="cta-title">Transportation Process</h2>
+            <p>End-to-end transportation management with real-time tracking and optimised routing for maximum efficiency.</p>
+          </div>
+          <div class="cta-right" style="flex-shrink: 0;">
+            <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 8px;">Would you like to get the best <span style="color: var(--orange);">Transport services?</span></h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-bottom: 16px;">Experience professional freight management with our comprehensive logistics solutions.</p>
+            <a href="#booking" class="btn btn-orange">Get Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BAR -->
+    <div class="bottom-cta" role="complementary">
+      <div class="container">
+        <div class="bottom-cta-inner">
+          <div class="bottom-cta-content">
+            <div class="bottom-cta-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
+            <div class="bottom-cta-text">
+              <h3>Would you like to get the best Transport services?</h3>
+              <p>Professional freight management with our comprehensive logistics solutions.</p>
+            </div>
+          </div>
+          <a href="#services" class="btn btn-white">Services →</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="SARAL Freight Management Home">
+            <div class="logo-icon" aria-hidden="true">S</div>
+            <span class="logo-text">SARAL FREIGHT</span>
+          </a>
+          <p>Professional freight and logistics solutions with a great reach and local expertise. Your trusted partner for all transportation needs.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer navigation">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#booking">Get a Quote</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <address class="footer-col" style="font-style: normal;">
+          <h4>Office Info</h4>
+          <div class="footer-contact-item">
+            <span aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+            <span><a href="tel:+61065777">+61 (0)65 7776</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+            <span><a href="mailto:support@saralfreightmgmt.com">support@saralfreightmgmt.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+            <span>33 Changi Road #01-17 S419780</span>
+          </div>
+        </address>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 SARAL FREIGHT MANAGEMENT PTE LTD. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT - minimal, only for nav toggle -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('navMenu');
+      var isOpen = false;
+
+      toggle.addEventListener('click', function () {
+        isOpen = !isOpen;
+        menu.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu on link click
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          isOpen = false;
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
